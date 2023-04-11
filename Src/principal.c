@@ -1,9 +1,9 @@
 #include "DriverJeuLaser.h"
 
-
+//Variable externe
 extern int LongueurSon, TableIndex;
 extern short SortieSon;
-extern short Son[];
+extern short Son[], TabCos[], TabSin[], LeSignal[];
 //CallbackSon Fonction C et ASM
 void CallbackSon(void);
 void CallbackSon_VertionC(){
@@ -21,7 +21,20 @@ void StartSon(void);
 void StartSon_VertionC(){
 	TableIndex = 0;
 }
-
+// DFT_ModuleAuCarre Fonction C et ASM
+int DFT_ModuleAuCarre( short int * Signal64ech, char k);
+int DFT_ModuleAuCarre_VertionC( short int * Signal64ech, char k){
+	int re = 0, im = 0;
+	for (int i=0; i < 64; i++) {
+		int feur = (k * i) % 64;
+		int signal = Signal64ech[i];
+		re += TabCos[feur] * signal;
+		im += TabSin[feur] * signal;
+	}
+	re = (int) (((long long) re * (long long)re) >> 32);
+	im = (int) (((long long) im * (long long) im) >> 32);
+	return re + im;
+}
 
 int main(void)
 {
@@ -29,6 +42,10 @@ int main(void)
 // ===========================================================================
 // ============= INIT PERIPH (faites qu'une seule fois)  =====================
 // ===========================================================================
+
+int ddfgnjjb = DFT_ModuleAuCarre_VertionC(LeSignal, 1);
+
+while	(ddfgnjjb){}
 	
 // Après exécution : le coeur CPU est clocké à 72MHz ainsi que tous les timers
 CLOCK_Configure();
@@ -52,12 +69,10 @@ Active_IT_Debordement_Timer( TIM4, 2, CallbackSon);
 
 
 
+
 //============================================================================	
 	
 	
-while	(1)
-	{
-		
-	}
+while	(1){}
 }
 

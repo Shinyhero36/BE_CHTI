@@ -28,7 +28,9 @@
 ;Section ROM code (read only) :		
 	AREA Trigo, DATA, READONLY
 ; codage fractionnaire 1.15
-
+	EXPORT TabCos
+	EXPORT TabSin
+		
 TabCos
 	DCW	32767	;  0 0x7fff  0.99997
 	DCW	32610	;  1 0x7f62  0.99518

@@ -423,6 +423,11 @@
               <FileType>2</FileType>
               <FilePath>.\Src\GestionSon.s</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DFT</GroupName>
+          <Files>
             <File>
               <FileName>DFT.s</FileName>
               <FileType>2</FileType>
@@ -857,6 +862,11 @@
               <FileType>2</FileType>
               <FilePath>.\Src\GestionSon.s</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DFT</GroupName>
+          <Files>
             <File>
               <FileName>DFT.s</FileName>
               <FileType>2</FileType>
@@ -1360,6 +1370,11 @@
               <FileType>2</FileType>
               <FilePath>.\Src\GestionSon.s</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DFT</GroupName>
+          <Files>
             <File>
               <FileName>DFT.s</FileName>
               <FileType>2</FileType>
