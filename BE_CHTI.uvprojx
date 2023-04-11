@@ -423,6 +423,16 @@
               <FileType>2</FileType>
               <FilePath>.\Src\GestionSon.s</FilePath>
             </File>
+            <File>
+              <FileName>DFT.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Src\DFT.s</FilePath>
+            </File>
+            <File>
+              <FileName>Signal.asm</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Src\Signal.asm</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -846,6 +856,16 @@
               <FileName>GestionSon.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\Src\GestionSon.s</FilePath>
+            </File>
+            <File>
+              <FileName>DFT.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Src\DFT.s</FilePath>
+            </File>
+            <File>
+              <FileName>Signal.asm</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Src\Signal.asm</FilePath>
             </File>
           </Files>
         </Group>
@@ -1339,6 +1359,16 @@
               <FileName>GestionSon.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\Src\GestionSon.s</FilePath>
+            </File>
+            <File>
+              <FileName>DFT.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Src\DFT.s</FilePath>
+            </File>
+            <File>
+              <FileName>Signal.asm</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Src\Signal.asm</FilePath>
             </File>
           </Files>
         </Group>
