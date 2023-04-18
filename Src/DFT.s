@@ -1,5 +1,5 @@
 	PRESERVE8
-	THUMB   
+	THUMB
 		
 
 ; ====================== zone de réservation de données,  ======================================
@@ -9,6 +9,9 @@
 
 ;Section RAM (read write):
 	area    maram,data,readwrite
+Index	dcd 0
+Re		dcd 0
+Im		dcd 0
 		
 
 	
@@ -19,9 +22,54 @@
 		
 ;Section ROM code (read only) :		
 	area    moncode,code,readonly
-; écrire le code ici		
+; écrire le code ici
 
 
+
+
+;int DFT_ModuleAuCarre_VertionC( short int * Signal64ech, char k){
+; r0 Signal64ech
+; r1 k
+; r2 re
+; r3 im
+; r4 Index
+; r5 feur
+; r6 signal
+; r7 temp pour TabCos[i] et TabSin[i] et la valeur de retour en fin de boucle
+; r8 TabCos
+; r9 TabSin
+DFT_ModuleAuCarre proc
+	ldr r2, =Re 				;	int re = 0
+	ldr r3, =Im					; 	int im = 0
+	ldr r8, =TabCos
+	ldr r9, =TabSin
+	mov r7, #64
+LOOP
+	cmp r4, r7					; for (int i=0; i < 64; i++) {
+	ble Fin_Function
+
+	mul r5, r1, r4 				;	int feur = (k * i)
+	and r5, #63					; 	feur = (k * i) % 64 ; cf https://en.wikipedia.org/wiki/Modulo => Performance issues
+	ldr r6, [r0, r4, lsl #2]	;	int signal = Signal64ech[i];
+	
+	ldrsh r7, [r8, r5, lsl #1]  ;	TabCos[feur]
+	mul r7, r6					;	TabCos[feur] * signal;
+	add r2, r7					; 	re += TabCos[feur] * signal;
+								
+	ldrsh r7, [r9, r5, lsl #1] 	; 	TabSin[feur]	
+	mul r7, r6					; 	TabSin[feur] * signal;
+	add r3, r7					;	im += TabSin[feur] * signal;
+								;	}
+	b LOOP
+
+Fin_Function
+	mul r2, r2					;	re = (int) (((long long) re * (long long)re) >> 32);
+	mul r3, r3					;	im = (int) (((long long) im * (long long) im) >> 32);
+	add r7, r2, r3				; 	re + im
+	mov r0, r7					;	return re + im; => r0 contient la variable de retour
+								;}
+	; bx lr
+	endp
 
 
 
