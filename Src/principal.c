@@ -1,4 +1,5 @@
 #include "DriverJeuLaser.h"
+#include <stdio.h>
 
 //Variable externe
 extern int LongueurSon, TableIndex;
@@ -44,6 +45,11 @@ int main(void)
 // ===========================================================================
 
 int ddfgnjjb = DFT_ModuleAuCarre_VertionC(LeSignal, 1);
+	
+for (int k=0; k < 64; k++) {
+	int squaredModule = DFT_ModuleAuCarre(LeSignal, k);
+	printf("Module_au__carré(%d) = %d", k, squaredModule);
+}
 
 while	(ddfgnjjb){}
 	

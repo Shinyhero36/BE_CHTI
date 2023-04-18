@@ -56,7 +56,7 @@ LOOP
 	mul r7, r6					;	TabCos[feur] * signal;
 	add r2, r7					; 	re += TabCos[feur] * signal;
 								
-	ldrsh r7, [r9, r5 lsl #1] 	; 	TabSin[feur]	
+	ldrsh r7, [r9, r5, lsl #1] 	; 	TabSin[feur]	
 	mul r7, r6					; 	TabSin[feur] * signal;
 	add r3, r7					;	im += TabSin[feur] * signal;
 								;	}
