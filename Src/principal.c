@@ -43,9 +43,12 @@ int main(void)
 // ============= INIT PERIPH (faites qu'une seule fois)  =====================
 // ===========================================================================
 
-int ddfgnjjb = DFT_ModuleAuCarre_VertionC(LeSignal, 1);
-
-while	(ddfgnjjb){}
+int retc = DFT_ModuleAuCarre_VertionC(LeSignal, 2);
+int retASM = DFT_ModuleAuCarre(LeSignal, 2);
+if (retc == retASM){
+	while	(retc){}
+}
+while	(1){}
 	
 // Après exécution : le coeur CPU est clocké à 72MHz ainsi que tous les timers
 CLOCK_Configure();

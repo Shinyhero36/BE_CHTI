@@ -21,6 +21,56 @@
 	area    moncode,code,readonly
 ; écrire le code ici		
 
+	EXPORT DFT_ModuleAuCarre
+
+; r0 Signal64ech
+; r1 k
+; r2 TabCos
+; r3 TabSin
+; r4 re
+; r5 im
+; r6 i
+; r7 feur
+; r8 signal
+; r9 	
+;int DFT_ModuleAuCarre_VertionC( short int * Signal64ech, char k){
+DFT_ModuleAuCarre proc
+	push {r4-r9}
+	ldr r2, =TabCos
+	ldr r3, =TabSin
+;	int re = 0, im = 0;
+	mov r4, #0
+	mov r5, #0
+;	for (int i=0; i < 64; i++) {
+	mov r6, #0
+LoopDFT_ModuleAuCarre
+;		int feur = (k * i) % 64;
+	mul r7, r1, r6
+	and r7, #63
+;		int signal = Signal64ech[i];
+	ldrsh r8, [r0, r6, lsl #1]
+;		re += TabCos[feur] * signal;
+	ldrsh r9, [r2, r7, lsl #1]
+	mla r4, r8, r9, r4
+;		im += TabSin[feur] * signal;
+	ldrsh r9, [r3, r7, lsl #1]
+	mla r5, r8, r9, r5
+;	}
+	add r6, #1
+	cmp r6, #64
+	blt  LoopDFT_ModuleAuCarre
+;	re = (int) (((long long) re * (long long)re) >> 32);
+	smull r9, r4, r4, r4
+;	im = (int) (((long long) im * (long long) im) >> 32);
+	smull r9, r5, r5, r5
+;	return re + im;
+	add r0, r4, r5
+;}
+	pop {r4-r9}
+	bx lr
+	nop
+	endp
+
 
 
 
