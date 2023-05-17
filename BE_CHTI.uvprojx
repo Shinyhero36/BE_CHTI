@@ -408,6 +408,11 @@
               <FileType>4</FileType>
               <FilePath>.\Driver\DriverJeuLaser.lib</FilePath>
             </File>
+            <File>
+              <FileName>affichage_valise.o</FileName>
+              <FileType>3</FileType>
+              <FilePath>.\Driver\affichage_valise.o</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -846,6 +851,11 @@
               <FileName>DriverJeuLaser.lib</FileName>
               <FileType>4</FileType>
               <FilePath>.\Driver\DriverJeuLaser.lib</FilePath>
+            </File>
+            <File>
+              <FileName>affichage_valise.o</FileName>
+              <FileType>3</FileType>
+              <FilePath>.\Driver\affichage_valise.o</FilePath>
             </File>
           </Files>
         </Group>
@@ -1354,6 +1364,11 @@
               <FileName>DriverJeuLaser.lib</FileName>
               <FileType>4</FileType>
               <FilePath>.\Driver\DriverJeuLaser.lib</FilePath>
+            </File>
+            <File>
+              <FileName>affichage_valise.o</FileName>
+              <FileType>3</FileType>
+              <FilePath>.\Driver\affichage_valise.o</FilePath>
             </File>
           </Files>
         </Group>
